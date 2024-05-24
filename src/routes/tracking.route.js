@@ -7,7 +7,7 @@ import { verifyJWT, authorizeRoles } from "../middlewares/verify.js";
 
 const router = express.Router();
 
-router.use(authenticateToken);
+router.use(verifyJWT);
 
 router.get("/:productId", getTrackingHistory);
 router.post("/",authorizeRoles(["admin"]), createTrackingEntry);
